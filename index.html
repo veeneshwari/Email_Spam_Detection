@@ -5,112 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Spam Detector</title>
 
+    <!-- CSS Link -->
     <link href="style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<div class="container">
-
-    <div class="header">
-        <div class="shield-icon">🛡️</div>
-        <h1>Email Spam Detector</h1>
-        <p class="subtitle">
-            Paste any email content below to check whether it is
-            <strong>Harmful</strong> or <strong>Harmless</strong>
-        </p>
-    </div>
-
-    <div class="card">
-        <form action="/predict" method="POST">
-
-            <label for="email_text">📧 Enter Email Content</label>
-
-            <textarea
-                id="email_text"
-                name="email_text"
-                rows="8"
-                placeholder="Paste your email text here..."
-            >{{ email_text if email_text else '' }}</textarea>
-
-            {% if error %}
-            <p class="error-msg">{{ error }}</p>
-            {% endif %}
-
-            <button type="submit" class="btn-predict">
-                🔍 Analyse Email
-            </button>
-
-        </form>
-    </div>
-
-    {% if prediction %}
-    <div class="result-card {{ badge_class }}">
-
-        <div class="verdict-icon">
-            {% if prediction == 'HARMFUL' %}
-                🚨
-            {% else %}
-                ✅
-            {% endif %}
-        </div>
-
-        <h2 class="verdict">{{ verdict }}</h2>
-
-        <p class="description">{{ description }}</p>
-
-        <div class="confidence-section">
-            <p class="confidence-label">
-                Detection Confidence:
-                <strong>{{ confidence }}%</strong>
-            </p>
-
-            <div class="bar-wrapper">
-                <div class="bar {% if prediction == 'HARMFUL' %}bar-harmful{% else %}bar-harmless{% endif %}"
-                     style="width: {{ confidence }}%">
-                </div>
-            </div>
-        </div>
-
-        <div class="prob-breakdown">
-
-            <div class="prob-item">
-                <span>✅ Harmless Probability</span>
-                <span class="harmless-text">
-                    {{ ham_confidence }}%
-                </span>
-            </div>
-
-            <div class="prob-item">
-                <span>🚨 Harmful Probability</span>
-                <span class="harmful-text">
-                    {{ spam_confidence }}%
-                </span>
-            </div>
-
-        </div>
-
-    </div>
-    {% endif %}
-
-    <div class="tips-card">
-        <h3>⚠️ Common Signs of Harmful Emails</h3>
-
-        <ul>
-            <li>Urgent language like "Act Now!"</li>
-            <li>Requests for passwords or bank details</li>
-            <li>Suspicious links or attachments</li>
-            <li>Free money or prize scams</li>
-            <li>Spelling mistakes and fake senders</li>
-        </ul>
-    </div>
-
-    <p class="footer">
-        Email Spam Detector | Machine Learning Project | Flask & Scikit-Learn
-    </p>
-
+<!-- ── HEADER ── -->
+<div class="header">
+    <div class="shield-icon">🛡️</div>
+    <h1>Email Spam Detector</h1>
+    <p class="subtitle">Paste any email content below to check whether it is <strong>Harmful</strong> or <strong>Harmless</strong></p>
 </div>
+
+<!-- Your remaining code here -->
 
 </body>
 </html>
