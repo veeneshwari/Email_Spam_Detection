@@ -1,0 +1,250 @@
+/* ── RESET & BASE ─────────────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    padding: 30px 15px;
+    color: #e0e0e0;
+}
+
+/* ── CONTAINER ────────────────────────────────────────────── */
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.shield-icon {
+    font-size: 56px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 12px rgba(100, 200, 255, 0.5));
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #a0b4cc;
+    line-height: 1.5;
+}
+
+/* ── CARDS ────────────────────────────────────────────────── */
+.card,
+.result-card,
+.tips-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 22px;
+    backdrop-filter: blur(8px);
+}
+
+/* ── FORM ─────────────────────────────────────────────────── */
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #90cdf4;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba(144, 205, 244, 0.25);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #63b3ed;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+textarea::placeholder {
+    color: #4a5568;
+    font-style: italic;
+}
+
+.error-msg {
+    color: #fc8181;
+    font-size: 0.88rem;
+    margin-top: 8px;
+}
+
+/* ── BUTTON ───────────────────────────────────────────────── */
+.btn-predict {
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3182ce, #2b6cb0);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(49, 130, 206, 0.4);
+}
+
+.btn-predict:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(49, 130, 206, 0.55);
+}
+
+.btn-predict:active {
+    transform: translateY(0);
+}
+
+/* ── RESULT CARD ──────────────────────────────────────────── */
+.result-card {
+    text-align: center;
+}
+
+.result-card.harmful {
+    border-color: rgba(252, 129, 74, 0.5);
+    background: rgba(155, 44, 44, 0.18);
+}
+
+.result-card.harmless {
+    border-color: rgba(72, 187, 120, 0.5);
+    background: rgba(22, 101, 52, 0.18);
+}
+
+.verdict-icon {
+    font-size: 52px;
+    margin-bottom: 10px;
+}
+
+.verdict {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.description {
+    font-size: 0.92rem;
+    color: #cbd5e0;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* ── CONFIDENCE BAR ───────────────────────────────────────── */
+.confidence-section {
+    margin-bottom: 18px;
+}
+
+.confidence-label {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    margin-bottom: 8px;
+}
+
+.bar-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.8s ease;
+}
+
+.bar-harmful {
+    background: linear-gradient(90deg, #e53e3e, #fc8181);
+}
+
+.bar-harmless {
+    background: linear-gradient(90deg, #38a169, #68d391);
+}
+
+/* ── PROBABILITY BREAKDOWN ────────────────────────────────── */
+.prob-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.prob-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.prob-label {
+    font-size: 0.82rem;
+    color: #a0aec0;
+}
+
+.prob-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.harmful-text  { color: #fc8181; }
+.harmless-text { color: #68d391; }
+
+/* ── TIPS CARD ────────────────────────────────────────────── */
+.tips-card h3 {
+    font-size: 1rem;
+    color: #fbd38d;
+    margin-bottom: 12px;
+}
+
+.tips-card ul {
+    padding-left: 18px;
+}
+
+.tips-card li {
+    font-size: 0.88rem;
+    color: #a0aec0;
+    line-height: 1.7;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #4a5568;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 500px) {
+    .header h1  { font-size: 1.5rem; }
+    .prob-breakdown { gap: 18px; }
+}
